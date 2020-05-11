@@ -1,6 +1,6 @@
 import marked from "marked";
-import { parseKey } from "./string-utils.js";
-import { setContent } from "./content.js";
+import { parseKey, getByPath } from "./string-utils.js";
+import { setContent, HAS_CONTENT } from "./content.js";
 import { parseList } from "./list.js";
 
 export function markdownToConfig(md) {
@@ -26,10 +26,8 @@ export function markdownToConfig(md) {
 
 			case "text":
 			case "paragraph":
-				setContent(conf, path, token.text);
-				break;
-
 			case "space":
+				setContent(conf, path, token.text || token.raw);
 				break;
 
 			default:

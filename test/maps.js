@@ -12,7 +12,6 @@ const c1 = markdownToConfig(`
 - age: 22
 
 ### Cards
-
 - A♠
 - J♣
 - Q♥
@@ -23,7 +22,6 @@ const c1 = markdownToConfig(`
 - age: 21
 
 ### Cards
-
 - 7♠
 - 7♣
 - 7♥
@@ -40,5 +38,3 @@ assert.equal(c1.players.p1.name, "Jack");
 assert.equal(c1.players.p1.age, 22);
 assert.equal(c1.players.p2.name, "Jim");
 assert.equal(c1.players.p2.age, 21);
-
-assert.equal(listKeys(c1.players.p1.cards), "");

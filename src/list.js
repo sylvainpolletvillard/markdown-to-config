@@ -1,5 +1,5 @@
-import { setByPath } from "./string-utils.js";
-import { setContent } from "./content.js";
+import { setByPath, getByPath } from "./string-utils.js";
+import { setContent, HAS_CONTENT } from "./content.js";
 
 export const parseList = (conf, path, token) => {
 	for (let item of token.items) {
@@ -15,7 +15,16 @@ export const parseListItem = (conf, path, item) => {
 		let [match, key, value] = propMatch;
 		setByPath(conf, [...path, key], parseValue(value));
 	} else {
-		setContent(conf, path, item.text);
+		let node = getByPath(conf, path);
+		if (node && node[HAS_CONTENT]) {
+			setContent(conf, path, item.text);
+		} else {
+			if (!Array.isArray(node)) {
+				node = Object.assign([], node);
+				setByPath(conf, path, node);
+			}
+			node.push(parseValue(item.text));
+		}
 	}
 };
 
