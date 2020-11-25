@@ -4,6 +4,10 @@ A markdown to JS config object parser. Inspired by [tj/mdconf](https://github.co
 
 ## Installation
 
+```js
+npm install markdown-to-config
+```
+
 ## Usage
 
 ```js

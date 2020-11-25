@@ -27,6 +27,13 @@
 	"snowpack": {
 		"exclude": [
 			"test/**/*"
-		]
+		],
+		"buildOptions": {
+			"out": "demo/build",
+			"baseUrl": "/markdown-to-config/"
+		},
+		"mount": {
+    		"demo": "/"
+  		}
 	}
 }
