@@ -24,3 +24,6 @@ node_modules
 # IDE
 .idea
 .vscode
+
+# Build directories
+dist
