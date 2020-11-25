@@ -1,6 +1,6 @@
 import marked from "marked";
-import { parseKey, getByPath } from "./string-utils.js";
-import { setContent, HAS_CONTENT } from "./content.js";
+import { parseKey } from "./string-utils.js";
+import { setContent } from "./content.js";
 import { parseList } from "./list.js";
 
 export function markdownToConfig(md) {
@@ -37,3 +37,22 @@ export function markdownToConfig(md) {
 
 	return conf;
 }
+
+function recursivelySerializeSymbols(obj) {
+	if (typeof obj !== "object" || obj == null) return obj;
+	const keys = [...Object.getOwnPropertySymbols(obj), ...Object.keys(obj)];
+	return Object.fromEntries(
+		keys.map((key) => [
+			typeof key === "symbol" ? key.toString() : key,
+			recursivelySerializeSymbols(obj[key]),
+		])
+	);
+}
+
+export function serialize(obj, indent = "\t", includesSymbols = true) {
+	if (includesSymbols) {
+		obj = recursivelySerializeSymbols(obj);
+	}
+	return JSON.stringify(obj, null, indent);
+}
+
