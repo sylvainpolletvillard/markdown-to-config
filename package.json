@@ -17,6 +17,10 @@
 	],
 	"author": "Sylvain Pollet-Villard",
 	"license": "ISC",
+	"repository": {
+		"type" : "git",
+		"url" : "https://github.com/sylvainpolletvillard/markdown-to-config.git"
+	},
 	"dependencies": {
 		"marked": "^1.2.5"
 	},
