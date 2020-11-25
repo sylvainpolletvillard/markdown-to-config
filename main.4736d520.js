@@ -17,4 +17,4 @@ var e,t=arguments[3];function n(e){return(n="function"==typeof Symbol&&"symbol"=
 },{"./src/main.js":"WSmw","./src/content.js":"xF9Y"}],"epB2":[function(require,module,exports) {
 "use strict";var n=r(require("marked")),e=require("../index.js");function r(n){return n&&n.__esModule?n:{default:n}}var t="# Players\n- number: 4\n- game: Poker\n\n## P1\n- name: Jack\n- age: 22\n\nHello I'm Jack\n\n### Cards\n- A♠\n- J♣\n- Q♥\n- K♦\n\n## P2\n- name: Jim\n- age: 21\n\n### Cards\n- 7♠\n- 7♣\n- 7♥\n- 7♦",u=document.querySelector("#input"),a=document.querySelector("#output-json"),o=document.querySelector("#output-html");function i(){t=u.value;var r=(0,e.markdownToConfig)(t);a.textContent=(0,e.serialize)(r),o.innerHTML=(0,n.default)(t)}u.value=t,i(),u.addEventListener("input",i);
 },{"marked":"F7mU","../index.js":"S3PC"}]},{},["epB2"], null)
-//# sourceMappingURL=/main.4736d520.js.map
+//# sourceMappingURL=main.4736d520.js.map
