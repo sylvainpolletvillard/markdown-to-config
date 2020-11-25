@@ -9,7 +9,7 @@ if (!which("git")) {
 exec("npm run demo:build");
 
 // navigate into the build output directory
-cd("build");
+cd("demo/dist");
 
 // if you are deploying to a custom domain
 // echo(""'www.example.com' > CNAME")

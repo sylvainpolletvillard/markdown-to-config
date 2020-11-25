@@ -6,9 +6,9 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "node test/index.js",
-		"demo:dev": "snowpack dev",
-		"demo:build": "snowpack build",
-		"demo:deploy": "node demo/deploy.js"
+		"demo:dev": "parcel demo/index.html",
+		"demo:build": "parcel build demo/index.html -d demo/dist --public-url ./",
+		"demo:deploy": "node demo/deploy.cjs"
 	},
 	"keywords": [
 		"markdown",
@@ -21,19 +21,7 @@
 		"marked": "^1.2.5"
 	},
 	"devDependencies": {
-		"shelljs": "^0.8.4",
-		"snowpack": "^2.17.1"
-	},
-	"snowpack": {
-		"exclude": [
-			"test/**/*"
-		],
-		"buildOptions": {
-			"out": "demo/build",
-			"baseUrl": "/markdown-to-config/"
-		},
-		"mount": {
-    		"demo": "/"
-  		}
+		"cssnano": "^4.1.10",
+		"shelljs": "^0.8.4"
 	}
 }
