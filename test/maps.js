@@ -1,6 +1,6 @@
 import { strict as assert } from "assert";
 import { listKeys } from "./helpers.js";
-import { markdownToConfig, CONTENT_AS_TEXT } from "../index.js";
+import { markdownToConfig } from "../index.js";
 
 const c1 = markdownToConfig(`
 # Players

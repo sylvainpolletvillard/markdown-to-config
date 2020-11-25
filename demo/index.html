@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>markdown-to-config demo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div id="app">
+    <header>
+      <h1>markdown-to-config demo</h1>
+      <span class="subtitle">Transform markdown into JSON</span>
+    </header>
+
+    <div id="input-container">
+      <textarea id="input" v-model="input"></textarea>
+    </div>
+
+    <pre id="output-json" class="output"></pre>
+    <div id="output-html" class="output"></div>
+    <footer>
+      <aside>
+        <a class="github-button" href="https://github.com/sylvainpolletvillard/markdown-to-config"
+          data-icon="octicon-star" data-size="large"
+          data-count-href="/sylvainpolletvillard/markdown-to-config/stargazers" data-show-count="true"
+          data-count-aria-label="# stargazers on GitHub"
+          aria-label="Star sylvainpolletvillard/markdown-to-config on GitHub">Star</a>
+        <a class="github-button" href="https://github.com/sylvainpolletvillard/markdown-to-config/fork"
+          data-icon="octicon-repo-forked" data-size="large"
+          data-count-href="/sylvainpolletvillard/markdown-to-config/network" data-show-count="true"
+          data-count-aria-label="# forks on GitHub"
+          aria-label="Fork sylvainpolletvillard/markdown-to-config on GitHub">Fork</a>
+      </aside>
+      <p>
+        <a href="https://github.com/sylvainpolletvillard/markdown-to-config" target="_blank">markdown-to-config v0.1</a>
+        by Sylvain Pollet-Villard
+      </p>
+    </footer>
+  </div>
+  <script type="module" src="main.js"></script>
+</body>
+
+</html>
