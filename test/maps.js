@@ -28,13 +28,25 @@ const c1 = markdownToConfig(`
 - 7♦
 `);
 
-assert.equal(listKeys(c1), "players");
-assert.equal(listKeys(c1.players), "number,game,p1,p2");
-assert.equal(c1.players.number, 4);
-assert.equal(c1.players.game, "Poker");
+assert.strictEqual(listKeys(c1), "Players");
+assert.strictEqual(listKeys(c1.Players), "number,game,P1,P2");
+assert.strictEqual(c1.Players.number, 4);
+assert.strictEqual(c1.Players.game, "Poker");
 
-assert.equal(listKeys(c1.players.p1), "name,age,cards");
-assert.equal(c1.players.p1.name, "Jack");
-assert.equal(c1.players.p1.age, 22);
-assert.equal(c1.players.p2.name, "Jim");
-assert.equal(c1.players.p2.age, 21);
+assert.strictEqual(listKeys(c1.Players.P1), "name,age,Cards");
+assert.strictEqual(c1.Players.P1.name, "Jack");
+assert.strictEqual(c1.Players.P1.age, 22);
+assert.strictEqual(c1.Players.P2.name, "Jim");
+assert.strictEqual(c1.Players.P2.age, 21);
+
+const c2 = markdownToConfig(`
+# long string key
+
+## Hello Jack
+- name: Jack
+`, {
+    camelizeKeys: true
+});
+
+assert.strictEqual(listKeys(c2), "longStringKey");
+assert.strictEqual(listKeys(c2.longStringKey), "helloJack");

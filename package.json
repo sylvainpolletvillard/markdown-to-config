@@ -1,6 +1,6 @@
 {
 	"name": "markdown-to-config",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "A markdown to JS config object parser. Inspired by tj/mdconf",
 	"type": "module",
 	"main": "index.js",

@@ -14,30 +14,32 @@ export const camelize = compose(
 	removeSpaces
 )
 
-export const parseKey = compose(trim, camelize)
+export const parseKey = (key, options) => {
+	return options.camelizeKeys ? compose(trim, camelize)(key) : trim(key);
+};
 
-export function getByPath(object, path) {
-	let index = 0
-	let length = path.length
+export function getByPath(object, path, options) {
+	let index = 0;
+	let length = path.length;
 
 	while (object != null && index < length) {
-		object = object[parseKey(path[index++])]
+		object = object[parseKey(path[index++], options)];
 	}
 
-	return index && index == length ? object : undefined
+	return index && index == length ? object : undefined;
 }
 
-export function setByPath(object, path, value) {
-	let index = 0
-	let length = path.length
+export function setByPath(object, path, value, options) {
+	let index = 0;
+	let length = path.length;
 
 	while (object != null && index < length) {
-		let key = parseKey(path[index++])
+		let key = parseKey(path[index++], options);
 		if (index === length) {
-			object[key] = value
+			object[key] = value;
 		} else if (!object.hasOwnProperty(key)) {
-			object[key] = {}
+			object[key] = {};
 		}
-		object = object[key]
+		object = object[key];
 	}
 }

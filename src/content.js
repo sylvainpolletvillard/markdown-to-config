@@ -5,13 +5,13 @@ export const HAS_CONTENT = Symbol("HAS_CONTENT");
 export const CONTENT_AS_TEXT = Symbol("CONTENT_AS_TEXT");
 export const CONTENT_AS_HTML = Symbol("CONTENT_AS_HTML");
 
-export function setContent(conf, path, text) {
+export function setContent(conf, path, text, options) {
 	let maxDepth = path.length;
 	let depth = 0;
 	let node = conf;
 
 	while (depth < maxDepth) {
-		let key = parseKey(path[depth++]);
+		let key = parseKey(path[depth++], options);
 		if (!node.hasOwnProperty(key)) {
 			node[key] = {};
 		} else if (typeof node[key] !== "object") {

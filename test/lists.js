@@ -29,9 +29,9 @@ const c1 = markdownToConfig(`
 `);
 
 assert.ok(Array.isArray(c1.players.p1.cards));
-assert.equal(listKeys(c1.players.p1.cards), "0,1,2,3");
-assert.equal(c1.players.p1.cards.join(","), "A♠,J♣,Q♥,K♦");
+assert.strictEqual(listKeys(c1.players.p1.cards), "0,1,2,3");
+assert.strictEqual(c1.players.p1.cards.join(","), "A♠,J♣,Q♥,K♦");
 
 assert.ok(Array.isArray(c1.players.p2.cards));
-assert.equal(listKeys(c1.players.p2.cards), "0,1,2,3");
-assert.equal(c1.players.p2.cards.join(","), "7♠,7♣,7♥,7♦");
+assert.strictEqual(listKeys(c1.players.p2.cards), "0,1,2,3");
+assert.strictEqual(c1.players.p2.cards.join(","), "7♠,7♣,7♥,7♦");

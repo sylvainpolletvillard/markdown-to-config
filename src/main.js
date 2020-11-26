@@ -3,7 +3,12 @@ import { parseKey } from "./string-utils.js";
 import { setContent } from "./content.js";
 import { parseList } from "./list.js";
 
-export function markdownToConfig(md) {
+const DEFAULTS_OPTIONS = {
+	camelizeKeys: false,
+};
+
+export function markdownToConfig(md, options = {}) {
+	options = Object.assign(DEFAULTS_OPTIONS, options);
 	const tokens = marked.lexer(md);
 	const conf = {};
 	const path = [];
@@ -11,7 +16,7 @@ export function markdownToConfig(md) {
 	for (let token of tokens) {
 		switch (token.type) {
 			case "heading":
-				const key = parseKey(token.text);
+				const key = parseKey(token.text, options);
 
 				while (path.length > token.depth - 1) {
 					path.pop();
@@ -21,13 +26,13 @@ export function markdownToConfig(md) {
 				break;
 
 			case "list":
-				parseList(conf, path, token);
+				parseList(conf, path, token, options);
 				break;
 
 			case "text":
 			case "paragraph":
 			case "space":
-				setContent(conf, path, token.text || token.raw);
+				setContent(conf, path, token.text || token.raw, options);
 				break;
 
 			default:
