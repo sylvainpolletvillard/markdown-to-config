@@ -1,5 +1,5 @@
 import { strict as assert } from "assert";
-import { listKeys } from "./helpers.js";
+import { isPlainObject, listKeys } from "./helpers.js";
 import { markdownToConfig } from "../index.js";
 
 const c1 = markdownToConfig(`
@@ -35,3 +35,21 @@ assert.strictEqual(c1.players.p1.cards.join(","), "A♠,J♣,Q♥,K♦");
 assert.ok(Array.isArray(c1.players.p2.cards));
 assert.strictEqual(listKeys(c1.players.p2.cards), "0,1,2,3");
 assert.strictEqual(c1.players.p2.cards.join(","), "7♠,7♣,7♥,7♦");
+
+const c2 = markdownToConfig(`
+# todo
+- dev:
+    - nested
+    - lists
+- test:
+    - list
+    - in
+    - list
+`);
+
+assert.ok(Array.isArray(c2.todo.dev));
+assert.strictEqual(listKeys(c2.todo.dev), "0,1");
+assert.strictEqual(c2.todo.dev.join(","), "nested,lists");
+assert.ok(Array.isArray(c2.todo.test));
+assert.strictEqual(listKeys(c2.todo.test), "0,1,2");
+assert.strictEqual(c2.todo.test.join(","), "list,in,list");

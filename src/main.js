@@ -45,6 +45,8 @@ export function markdownToConfig(md, options = {}) {
 
 function recursivelySerializeSymbols(obj) {
 	if (typeof obj !== "object" || obj == null) return obj;
+	if (Array.isArray(obj) && Object.keys(obj).length === obj.length)
+		return obj;
 	const keys = [...Object.getOwnPropertySymbols(obj), ...Object.keys(obj)];
 	return Object.fromEntries(
 		keys.map((key) => [

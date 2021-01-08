@@ -11,7 +11,7 @@ let input = `# Players
 
 Hello I'm Jack
 
-### Cards
+### cards
 - A♠
 - J♣
 - Q♥
@@ -19,13 +19,12 @@ Hello I'm Jack
 
 ## P2
 - name: Jim
-- age: 21
-
-### Cards
-- 7♠
-- 7♣
-- 7♥
-- 7♦`;
+- cards:
+	- 7♠
+	- 7♣
+	- 7♥
+	- 7♦
+- age: 21`;
 
 const inputElm = document.querySelector("#input");
 const outputJSONElm = document.querySelector("#output-json");
@@ -35,6 +34,7 @@ function convertToConfig() {
 	input = inputElm.value;
 	const output = markdownToConfig(input);
 	outputJSONElm.textContent = serialize(output);
+	console.log(output);
 	outputHTMLElm.innerHTML = marked(input);
 }
 
