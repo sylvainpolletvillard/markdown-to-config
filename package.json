@@ -22,7 +22,7 @@
 		"url" : "https://github.com/sylvainpolletvillard/markdown-to-config.git"
 	},
 	"dependencies": {
-		"marked": "^1.2.5"
+		"marked": "^2.0.0"
 	},
 	"devDependencies": {
 		"cssnano": "^4.1.10",
