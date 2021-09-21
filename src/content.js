@@ -6,6 +6,8 @@ export const CONTENT_AS_TEXT = Symbol("CONTENT_AS_TEXT");
 export const CONTENT_AS_HTML = Symbol("CONTENT_AS_HTML");
 
 export function setContent(conf, path, text, options) {
+	const isEmpty = /^[\n\r\s]*$/.test(text)
+
 	let maxDepth = path.length;
 	let depth = 0;
 	let node = conf;
@@ -20,10 +22,7 @@ export function setContent(conf, path, text, options) {
 		node = node[key];
 	}
 
-	addContent(node, text);
-	if (node[HAS_CONTENT]) {
-		node[CONTENT_AS_HTML] = marked(node[CONTENT_AS_TEXT]);
-	}
+	if(!isEmpty || node[HAS_CONTENT]) addContent(node, text);
 }
 
 export function addContent(node, text) {
@@ -31,6 +30,7 @@ export function addContent(node, text) {
 		node[CONTENT_AS_TEXT] = (node[CONTENT_AS_TEXT] + "\n\n" + text).trim();
 	} else {
 		node[HAS_CONTENT] = true;
-		node[CONTENT_AS_TEXT] = text;
+		node[CONTENT_AS_TEXT] = text.trim();
 	}
+	node[CONTENT_AS_HTML] = marked(node[CONTENT_AS_TEXT]);
 }
