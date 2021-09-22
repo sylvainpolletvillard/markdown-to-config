@@ -5,10 +5,13 @@
 	"type": "module",
 	"main": "./index.js",
 	"exports": "./index.js",
+	"targets": {
+		"main": false
+	},
 	"scripts": {
 		"test": "node test/index.js",
 		"demo:dev": "parcel demo/index.html",
-		"demo:build": "parcel build demo/index.html -d demo/dist --public-url ./",
+		"demo:build": "parcel build demo/index.html --dist-dir demo/dist --public-url ./",
 		"demo:deploy": "node demo/deploy.cjs"
 	},
 	"keywords": [
@@ -26,7 +29,7 @@
 		"marked": "^3.0.4"
 	},
 	"devDependencies": {
-		"parcel": "1.12.3",
+		"parcel": "^2.0.0-rc.0",
 		"shelljs": "^0.8.4"
 	}
 }
