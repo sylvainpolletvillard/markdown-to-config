@@ -5,6 +5,8 @@ import { parseList } from "./list.js";
 
 const DEFAULTS_OPTIONS = {
 	camelizeKeys: false,
+	parseContent: str => str.trim(),
+	markedOptions: null
 };
 
 export function markdownToConfig(md, options = {}) {

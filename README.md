@@ -29,7 +29,9 @@ const config = markdownToConfig(markdownText, options)
 Default options:
 ```js
 {
-    camelizeKeys: false // replaces "long map key" by "longMapKey"
+    camelizeKeys: false, // replaces "long map key" by "longMapKey",
+    parseContent: str => str.trim(), // function applied on content parsing
+    markedOptions: null // options passed to marked for html conversion
 }
 ```
 
