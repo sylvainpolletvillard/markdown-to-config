@@ -27,6 +27,8 @@ node_modules
 
 # Build directories
 dist
+demo/dist
 
 # Parcel cache
 .parcel-cache
+.cache

@@ -1,9 +1,10 @@
 {
 	"name": "markdown-to-config",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"description": "A markdown to JS config object parser. Inspired by tj/mdconf",
 	"type": "module",
-	"main": "index.js",
+	"main": "./index.js",
+	"exports": "./index.js",
 	"scripts": {
 		"test": "node test/index.js",
 		"demo:dev": "parcel demo/index.html",
@@ -25,7 +26,7 @@
 		"marked": "^3.0.4"
 	},
 	"devDependencies": {
-		"parcel": "^2.0.0-rc.0",
+		"parcel": "1.12.3",
 		"shelljs": "^0.8.4"
 	}
 }
