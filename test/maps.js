@@ -5,7 +5,7 @@ import { markdownToConfig } from "../index.js";
 const c1 = markdownToConfig(`
 # Players
 - number: 4
-- game: Poker
+- favorite game: Poker
 
 ## P1
 - name: Jack
@@ -29,9 +29,9 @@ const c1 = markdownToConfig(`
 `);
 
 assert.strictEqual(listKeys(c1), "Players");
-assert.strictEqual(listKeys(c1.Players), "number,game,P1,P2");
+assert.strictEqual(listKeys(c1.Players), "number,favorite game,P1,P2");
 assert.strictEqual(c1.Players.number, 4);
-assert.strictEqual(c1.Players.game, "Poker");
+assert.strictEqual(c1.Players["favorite game"], "Poker");
 
 assert.strictEqual(listKeys(c1.Players.P1), "name,age,Cards");
 assert.strictEqual(c1.Players.P1.name, "Jack");

@@ -7,7 +7,7 @@ export const parseList = (conf, path, token, options) => {
 	}
 };
 
-const REGEX_PROP_VALUE = /(\w+):(.*)/;
+const REGEX_PROP_VALUE = /(^[\w\s]+):(.*)/;
 
 export const parseListItem = (conf, path, item, options) => {
 	const propMatch = item.text.match(REGEX_PROP_VALUE);
