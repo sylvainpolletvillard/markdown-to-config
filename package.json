@@ -1,6 +1,6 @@
 {
 	"name": "markdown-to-config",
-	"version": "0.2.1",
+	"version": "0.3.0",
 	"description": "A markdown to JS config object parser. Inspired by tj/mdconf",
 	"type": "module",
 	"main": "./index.js",
@@ -26,10 +26,10 @@
 		"url": "https://github.com/sylvainpolletvillard/markdown-to-config.git"
 	},
 	"dependencies": {
-		"marked": "^3.0.4"
+		"marked": "^4.0.16"
 	},
 	"devDependencies": {
-		"parcel": "^2.0.0-rc.0",
+		"parcel": "^2.5.0",
 		"shelljs": "^0.8.4"
 	}
 }

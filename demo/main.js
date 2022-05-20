@@ -1,4 +1,4 @@
-import marked from "marked";
+import { marked } from "marked";
 import { markdownToConfig, serialize } from "../index.js";
 
 let input = `# Players
@@ -35,7 +35,7 @@ function convertToConfig() {
 	const output = markdownToConfig(input);
 	outputJSONElm.textContent = serialize(output);
 	console.log(output);
-	outputHTMLElm.innerHTML = marked(input);
+	outputHTMLElm.innerHTML = marked.parse(input);
 }
 
 inputElm.value = input;

@@ -1,4 +1,4 @@
-import marked from "marked";
+import {marked } from "marked";
 import { parseKey } from "./string-utils.js";
 
 export const HAS_CONTENT = Symbol("HAS_CONTENT");
@@ -32,5 +32,5 @@ export function addContent(node, text, options) {
 		node[HAS_CONTENT] = true;
 		node[CONTENT_AS_TEXT] = options.parseContent(text);
 	}
-	node[CONTENT_AS_HTML] = marked(node[CONTENT_AS_TEXT], options.markedOptions);
+	node[CONTENT_AS_HTML] = marked.parse(node[CONTENT_AS_TEXT], options.markedOptions);
 }

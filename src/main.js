@@ -1,4 +1,4 @@
-import marked from "marked";
+import { marked } from "marked";
 import { parseKey } from "./string-utils.js";
 import { setContent } from "./content.js";
 import { parseList } from "./list.js";
