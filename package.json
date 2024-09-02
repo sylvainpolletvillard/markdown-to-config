@@ -1,6 +1,6 @@
 {
 	"name": "markdown-to-config",
-	"version": "0.3.0",
+	"version": "0.4.0",
 	"description": "A markdown to JS config object parser. Inspired by tj/mdconf",
 	"type": "module",
 	"main": "./index.js",
@@ -14,11 +14,7 @@
 		"demo:build": "parcel build demo/index.html --dist-dir demo/dist --public-url ./",
 		"demo:deploy": "node demo/deploy.cjs"
 	},
-	"keywords": [
-		"markdown",
-		"config",
-		"parser"
-	],
+	"keywords": ["markdown", "config", "parser"],
 	"author": "Sylvain Pollet-Villard",
 	"license": "ISC",
 	"repository": {
@@ -26,7 +22,7 @@
 		"url": "https://github.com/sylvainpolletvillard/markdown-to-config.git"
 	},
 	"dependencies": {
-		"marked": "^4.0.16"
+		"marked": "^14.1.0"
 	},
 	"devDependencies": {
 		"parcel": "^2.5.0",
